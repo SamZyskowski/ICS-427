@@ -8,12 +8,13 @@ class Landing extends React.Component {
         <Grid id='landing-page' verticalAlign='middle' textAlign='center' container>
 
           <Grid.Column width={4}>
-            <Image size='small' circular src="/images/meteor-logo.png"/>
+            <Image size='small' circular src="/images/dota.jpg"/>
           </Grid.Column>
 
           <Grid.Column width={8}>
-            <h1>Welcome to this template</h1>
-            <p>Now get to work and modify this app!</p>
+            <h1>Welcome to PROSTATS</h1>
+            <p>Your next solution to becoming a smarter player</p>
+            <p>Sign-up to begin</p>
           </Grid.Column>
 
         </Grid>

@@ -22,9 +22,9 @@ class ListStuffAdmin extends React.Component {
           <Table celled>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell>Name</Table.HeaderCell>
-                <Table.HeaderCell>Quantity</Table.HeaderCell>
-                <Table.HeaderCell>Condition</Table.HeaderCell>
+                <Table.HeaderCell>MatchID</Table.HeaderCell>
+                <Table.HeaderCell>outcome</Table.HeaderCell>
+                <Table.HeaderCell>hero</Table.HeaderCell>
                 <Table.HeaderCell>Owner</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
