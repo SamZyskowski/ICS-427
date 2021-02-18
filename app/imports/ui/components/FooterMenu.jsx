@@ -11,7 +11,7 @@ export default class FooterMenu extends React.Component {
             </Grid.Column>
 
             <Grid.Column>
-              Links <Divider/>
+              Fill this in later <Divider/>
               <List>
                 <List.Item>1</List.Item>
                 <List.Item>2</List.Item>
@@ -22,7 +22,7 @@ export default class FooterMenu extends React.Component {
             </Grid.Column>
 
             <Grid.Column>
-              Contact <Divider/>
+              " " <Divider/>
               <List>
                 <List.Item>1</List.Item>
                 <List.Item>2</List.Item>
