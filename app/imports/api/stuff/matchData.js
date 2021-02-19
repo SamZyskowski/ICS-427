@@ -1,10 +1,10 @@
+ class matchData {
 
-class matchData {
-
-    /*
-    Gets the match data based off an inputted matchID
+   /**
+    * Gets the match data from a passed match ID and sends a request to the OPEN DOTA api
+    * @param x 
     */
-    getMatchData(x){
+     getMatchData(x){
 
         fetch("https://api.opendota.com/api/matches/" + x).subscribe((MD))
         .then(response => {
@@ -23,8 +23,7 @@ class matchData {
         .catch((error) => {
             console.log(error);
         });
+        return x;
     }
 }
-
-export default matchData;
-    
+export default matchData
