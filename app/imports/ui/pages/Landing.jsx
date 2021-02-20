@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Image } from 'semantic-ui-react';
-import * as md from '../../api/stuff/matchData';
-
+import matchData from '../../api/stuff/matchData'
+import validator from 'validator';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -15,8 +15,9 @@ class Landing extends React.Component {
     this.state = {
       matchID: ''
     }
-    this.handleInputChange = this.handleInputChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.matchData = new matchData(props);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   /*
@@ -24,9 +25,21 @@ class Landing extends React.Component {
     an imported method getMatchData on the results
   */
   handleSubmit = (event) => {
-    alert(this.state.matchID + " is your match ID")
-    event.preventDefault()
-    md.getMatchData(event.target.value)
+    event.preventDefault();
+    const matchID = this.state.matchID;
+
+      if(validator.isInt(matchID))
+      {
+        this.setState({matchID});
+        console.log(matchID);
+        alert(this.state.matchID + " is your match ID");
+        this.matchData.getMatchData(parseInt(matchID));
+      } 
+      else
+      {
+        alert("Please enter an integer");
+      }
+    
   }
 
   /*
@@ -66,9 +79,7 @@ class Landing extends React.Component {
                 <form onSubmit = {this.handleSubmit}>
                   <input
                    type = "text" 
-                   pattern = "[0-9]*" 
-                   placeholder = "MatchID" 
-                   name = "matchID"
+                   placeholder = "MatchID"
                    value = {this.state.matchID}
                    onChange = {this.handleInputChange}
                    />
