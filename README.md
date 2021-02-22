@@ -11,7 +11,7 @@ Displaying the data to the webpage itself, not just the console
 
 # List of team members specifying under each team member's name: what they worked on in the project so far, and what they will be handling next.
 
-Sam Zyskowski - Initial commit and all other code
-Chris - report
-James - report
-Jeffery - report 
+Sam Zyskowski - Initial commit and all other code  <br/>
+Chris - report  <br/>
+James - report <br/>
+Jeffery - report  <br/>
