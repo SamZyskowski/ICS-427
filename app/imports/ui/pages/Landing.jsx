@@ -58,32 +58,48 @@ class Landing extends React.Component {
   render() {
     const matchID = this.state;
     return (
-        <Grid id='landing-page' verticalAlign='middle' textAlign='center' container>
+        <Grid id='landing-page' verticalAlign='middle' textAlign='center' divided='vertically' container>
 
-          <Grid.Column width={10}>
-            <Image size='small' circular src="/images/dota.jpg"/>
-          </Grid.Column>
+            <Grid.Row>
 
-          <Grid.Column width={4}>
-            <h1>Welcome to PROSTATS</h1>
-            <p>Your next solution to becoming a smarter player</p>
-            <p>Sign-up to begin</p>
-          </Grid.Column>
+              <Grid.Column width={7}>
+                <h1>Welcome to PROSTATS</h1>
+                <p>Your next solution to becoming a smarter player</p>
+                <p>Sign-up to begin</p>
+              </Grid.Column>
 
-          <Grid.Column width = {4}>
-              <div className = "ui form">
-                <h1>Input MatchID Here</h1>
-                <form onSubmit = {this.handleSubmit}>
-                  <input
-                   type = "text"
-                   placeholder = "MatchID"
-                   value = {this.state.matchID}
-                   onChange = {this.handleInputChange}
-                   />
-                <button>Search</button>
-                </form>
-              </div>
-          </Grid.Column>
+              <Grid.Column width={3}>
+              </Grid.Column>
+
+              <Grid.Column width={5}>
+                <Image size='small' circular src="/images/dota.jpg"/>
+              </Grid.Column>
+
+            </Grid.Row>
+
+            <Grid.Row>
+
+              <Grid.Column width={7}>
+                  <div className = "ui form">
+                    <h1>Input MatchID Here</h1>
+                    <form onSubmit = {this.handleSubmit}>
+                      <input
+                       type = "text"
+                       placeholder = "MatchID"
+                       value = {this.state.matchID}
+                       onChange = {this.handleInputChange}
+                       />
+                    <button>Search</button>
+                    </form>
+                  </div>
+              </Grid.Column>
+
+            </Grid.Row>
+
+          <Grid.Row width={10}>
+            <h1>Match Records Displayed here</h1>
+
+          </Grid.Row>
 
         </Grid>
     );
