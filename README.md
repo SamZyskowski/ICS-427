@@ -14,4 +14,4 @@ Displaying the data to the webpage itself, not just the console
 Sam Zyskowski - Initial commit and all other code  <br/>
 Chris - report  <br/>
 James - report <br/>
-Jeffery - Working on fixing errors and getting landing to display matches from logged in user<br/>
+Jeffery - Working on fixing errors and working on layouts<br/>
