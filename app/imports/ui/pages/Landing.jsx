@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Image } from 'semantic-ui-react';
-import matchData from '../../api/stuff/matchData'
 import validator from 'validator';
+import matchData from '../../api/stuff/matchData';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -10,56 +10,53 @@ class Landing extends React.Component {
     Binds handleinputchange and handlesubmit so they may be called down below
     Also sets matchID to an empty string
   */
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
-      matchID: ''
-    }
+      matchID: '',
+    };
     this.matchData = new matchData(props);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   /*
-    Shows user what they are inputting before calling 
+    Shows user what they are inputting before calling
     an imported method getMatchData on the results
   */
   handleSubmit = (event) => {
     event.preventDefault();
     const matchID = this.state.matchID;
 
-      if(validator.isInt(matchID))
-      {
-        this.setState({matchID});
+      if (validator.isInt(matchID)) {
+        this.setState({ matchID });
         console.log(matchID);
-        alert(this.state.matchID + " is your match ID");
+        alert(`${this.state.matchID} is your match ID`);
         this.matchData.getMatchData(parseInt(matchID));
-      } 
-      else
-      {
-        alert("Please enter an integer");
+      } else {
+        alert('Please enter an integer');
       }
-    
+
   }
 
   /*
-    Sets the state whenever matchID is changed 
+    Sets the state whenever matchID is changed
   */
   handleInputChange = (event) => {
     this.setState({
-       matchID: event.target.value
-      
-      })
+       matchID: event.target.value,
+
+      });
 
   }
-  
+
   /*
     The last grid column calls for a numeric input,
-    so that it may be passed to the handle submit function 
+    so that it may be passed to the handle submit function
 
   */
   render() {
-    const matchID = this.state
+    const matchID = this.state;
     return (
         <Grid id='landing-page' verticalAlign='middle' textAlign='center' container>
 
@@ -74,11 +71,11 @@ class Landing extends React.Component {
           </Grid.Column>
 
           <Grid.Column width = {4}>
-              <div class = "ui form">
+              <div className = "ui form">
                 <h1>Input MatchID Here</h1>
                 <form onSubmit = {this.handleSubmit}>
                   <input
-                   type = "text" 
+                   type = "text"
                    placeholder = "MatchID"
                    value = {this.state.matchID}
                    onChange = {this.handleInputChange}
@@ -91,7 +88,6 @@ class Landing extends React.Component {
         </Grid>
     );
   }
-
 
 }
 
