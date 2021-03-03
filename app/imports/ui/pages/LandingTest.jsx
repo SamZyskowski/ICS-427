@@ -33,8 +33,8 @@ class LandingTest extends React.Component {
       this.setState({playerID});
       console.log(playerID);
       alert(this.state.playerID + " is your player ID");
-      const array = this.playerData.getPlayerData(parseInt(playerID));
-      console.log(array.length);
+      let matches = this.playerData.getPlayerData(parseInt(playerID));
+      console.log(matches);
     }
     else
     {

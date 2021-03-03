@@ -17,7 +17,7 @@ class playerData extends React.Component{
    * @param x
    */
   getPlayerData(x){
-
+    let matches = [];
     fetch("https://api.opendota.com/api/players/" + x + "/matches")
         .then(res => res.json())
         .then((result) => {
@@ -26,6 +26,8 @@ class playerData extends React.Component{
                 playerID: result.data
               });
               console.log(result);
+              matches = result;
+              console.log(matches[0].player_slot)
             },
             //if(response.ok){
             // }
