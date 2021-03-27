@@ -16,8 +16,8 @@ class NavBar extends React.Component {
           <Header inverted as='h1'>PRO STATS</Header>
         </Menu.Item>
         {this.props.currentUser ? (
-            [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Add Match Data</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>List Match Data</Menu.Item>]
+            [<Menu.Item as={NavLink} activeClassName="active" exact to="/matchID" key='add'>See Match Data</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/playerID" key='list'>See Player Data</Menu.Item>]
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
             <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
@@ -48,10 +48,10 @@ NavBar.propTypes = {
   currentUser: PropTypes.string,
 };
 
-/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
+/** withTracker connects Meteor data to React components.*/
 const NavBarContainer = withTracker(() => ({
   currentUser: Meteor.user() ? Meteor.user().username : '',
 }))(NavBar);
 
-/** Enable ReactRouter for this component. https://reacttraining.com/react-router/web/api/withRouter */
+/** Enable ReactRouter for this component.  */
 export default withRouter(NavBarContainer);

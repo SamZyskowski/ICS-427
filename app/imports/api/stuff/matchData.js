@@ -5,7 +5,7 @@ import React from "react";
    constructor(props){
         super(props);
         this.state = {
-            matchID: '',
+            matchResult: '',
             isOK: false,
             error: null
         };
@@ -13,7 +13,7 @@ import React from "react";
     }
 
    /**
-    * Gets the match data from a passed match ID and sends a request to the OPEN DOTA api
+    * Gets the match data from a passed match ID and sends a GET request to the OPEN DOTA api
     * @param x 
     */
      getMatchData(x){
@@ -23,7 +23,7 @@ import React from "react";
         .then((result) => {
             this.setState({
                 isOK: true,
-                matchID: result.data
+                matchResult: result.data
             });
             console.log(result);
         },
