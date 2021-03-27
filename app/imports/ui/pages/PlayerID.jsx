@@ -36,6 +36,9 @@ class PlayerID extends React.Component {
             this.setState({playerID});
             //console.log(playerID);
             alert(this.state.playerID + " is your player ID");
+
+            //use these to display to console
+            
             this.playerData.getPlayerData(parseInt(playerID));
             this.playerData.getWinLoss(parseInt(playerID));
             //console.log(this.playerData.result.win);
