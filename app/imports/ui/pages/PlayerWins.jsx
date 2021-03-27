@@ -4,7 +4,7 @@ import playerData from '../../api/stuff/playerData'
 import validator from 'validator';
 
 
-class PlayerID extends React.Component {
+class PlayerWins extends React.Component {
    
     /*
     Binds handleinputchange and handlesubmit so they may be called down below
@@ -13,7 +13,8 @@ class PlayerID extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      playerID: ''
+      playerID: '',
+      playerWins: ''
      
     }
     this.playerData = new playerData(props);
@@ -45,7 +46,7 @@ class PlayerID extends React.Component {
             //use these to display to console
             
             this.playerData.getPlayerData(parseInt(playerID));
-            this.playerData.getWinLoss(parseInt(playerID));
+            this.getWinLoss(parseInt(playerID));
             //console.log(this.playerData.result.win);
           } 
           else
@@ -68,6 +69,34 @@ class PlayerID extends React.Component {
       })
 
   }
+
+
+  /**
+   * Returns the player's win/loss stats
+   * @param x   This is the accountID being passed in 
+   */
+ async getWinLoss(x){
+     await fetch("https://api.opendota.com/api/players/" + x + "/wl")
+         .then(res => res.json())
+         .then((result) => {
+               this.setState({
+                 isOK: true,
+                 playerWins: result.win
+               })
+               console.log(result);
+               return result.win;
+             },
+             (error) => {
+               this.setState({
+                 isOK: true,
+                 error
+               });
+ 
+             }
+ 
+         )
+         
+   }
 
   render(){
       const playerID = this.state
@@ -94,7 +123,7 @@ class PlayerID extends React.Component {
                       <div class = "content">
                           <img class = "right floated ui image" src = ""/>
                           <div class = "header">
-                            {/* insert code to get win count here */}
+                            {this.state.playerWins}
                           </div>
                       </div>
                   </div>
@@ -104,4 +133,4 @@ class PlayerID extends React.Component {
       );
   }
 }
-export default PlayerID;
+export default PlayerWins;

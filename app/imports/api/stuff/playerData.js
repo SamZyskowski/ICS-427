@@ -24,14 +24,15 @@ class playerData extends React.Component{
    * @param x   This is the accountID being passed in 
    */
   getPlayerData(x){
-    fetch("https://api.opendota.com/api/players/" + x)
+   return fetch("https://api.opendota.com/api/players/" + x)
         .then(res => res.json())
         .then((result) => {
               this.setState({
                 isOK: true,
                 playerResult: result.data
-              });
+              })
               console.log(result);
+              return result.data;
               //matches = result;
               //console.log(matches[0].player_slot)
             },
@@ -55,14 +56,14 @@ class playerData extends React.Component{
    * Returns the player's win/loss stats
    * @param x   This is the accountID being passed in 
    */
-  getWinLoss(x, props){
-    fetch("https://api.opendota.com/api/players/" + x + "/wl")
+ async getWinLoss(x, props){
+   return await fetch("https://api.opendota.com/api/players/" + x + "/wl")
         .then(res => res.json())
         .then((result) => {
               this.setState({
                 isOK: true,
                 playerWins: result.win
-              });
+              })
               console.log(result);
               return result.win;
             },
