@@ -17,19 +17,20 @@ class PlayerWins extends React.Component {
           playerWins:'',
           hero:'',
           heroKDA:'',
-          heroWL:''
+          heroWL:'',
+          playerTotalWins: ''
       }
     this.playerData = new playerData(props);
     this.handleInputChangeID = this.handleInputChangeID.bind(this);
-      this.handleInputChangeHero = this.handleInputChangeHero.bind(this);
+    this.handleInputChangeHero = this.handleInputChangeHero.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  async ComponentDidMount(){
-    const pd = new playerData(props);
-    const information = await pd.getWinLoss(105248644);
-    console.log(information);
-  }
+  // async ComponentDidMount(){
+  //   const pd = new playerData(props);
+  //   const information = await pd.getWinLoss(105248644);
+  //   console.log(information);
+  // }
 
    /*
     Shows user what they are inputting before calling 
@@ -43,7 +44,7 @@ class PlayerWins extends React.Component {
           {
             this.setState({playerID});
             //console.log(playerID);
-            alert(this.state.playerID + " is your player ID");
+           //alert(this.state.playerID + " is your player ID");
 
             //use these to display to console
 
@@ -92,7 +93,8 @@ class PlayerWins extends React.Component {
          .then((result) => {
                this.setState({
                  isOK: true,
-                 playerWins: ((result.win)/((result.win)+(result.lose)))
+                 playerWins: ((result.win)/((result.win)+(result.lose))).toFixed(3),
+                 playerTotalWins: result.win
                })
                console.log((result.win)/((result.win)+(result.lose)));
                return ((result.win)/((result.win)+(result.lose)));
@@ -134,7 +136,7 @@ class PlayerWins extends React.Component {
                     }
                     this.setState({
                         isOK: true,
-                        heroWL: (heroWins/(heroWins + heroLoses))
+                        heroWL: (heroWins/(heroWins + heroLoses)).toFixed(3)
                     })
                 console.log(heroWins);
                     console.log(heroLoses);
@@ -176,7 +178,7 @@ class PlayerWins extends React.Component {
                     }
                     this.setState({
                         isOK: true,
-                        heroKDA: ((kda.reduce((a, b) => a + b))/kda.length)
+                        heroKDA: ((kda.reduce((a, b) => a + b))/kda.length).toFixed(3)
                     })
                     return ((kda.reduce((a, b) => a + b))/kda.length);
                 },
@@ -194,7 +196,7 @@ class PlayerWins extends React.Component {
   render(){
       const playerID = this.state
       return (
-        <Grid id='landing-page' verticalAlign='middle' textAlign='center' container>
+        <Grid id='landing-page' verticalAlign='middle' textAlign='center' container style = {itemstyle1}>
             <Grid.Column width = {4}>
               <div class = "ui form">
                 <h1>Input PlayerID Here</h1>
@@ -216,11 +218,14 @@ class PlayerWins extends React.Component {
               </div>
           </Grid.Column>
 
-          <Grid.Column width = {4}>
+          <Grid.Column width = {8}>
               <div class = "ui cards">
                   <div class = "card">
                       <div class = "content">
                           <img class = "right floated ui image" src = ""/>
+                          <div class = "header">
+                                Total Wins: {this.state.playerTotalWins}
+                          </div>
                           <div class = "header">
                                 Player W/L: {this.state.playerWins}
                           </div>
@@ -238,4 +243,7 @@ class PlayerWins extends React.Component {
       );
   }
 }
+
+var itemstyle1 = { fontFamily: 'Helvetica', fontSize: '20px', color: 'black', textAlign: 'center'};
+
 export default PlayerWins;
