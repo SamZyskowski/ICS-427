@@ -14,7 +14,7 @@ class PlayerStatsWithHero extends React.Component {
         super(props)
         this.state = {
             playerID: '',
-            playerWins: 0,
+            playerWins:'',
             hero:'40'
         }
         this.playerData = new playerData(props);
@@ -51,7 +51,7 @@ class PlayerStatsWithHero extends React.Component {
             //use these to display to console
 
             this.playerData.getPlayerData(parseInt(playerID));
-            this.getWinLoss(parseInt(playerID));
+            this.getkda(parseInt(playerID));
             //console.log(this.playerData.result.win);
         }
         else
@@ -81,39 +81,8 @@ class PlayerStatsWithHero extends React.Component {
      * @param x   This is the accountID being passed in
      */
 
-  /** This call only gets win/loss data about the hero with the heroid set in the state
-   *  async getWinLoss(x){
-        await fetch("https://api.opendota.com/api/players/"+ x +"/heroes")
-            .then(res => res.json())
-            .then((result) => {
-                    this.setState({
-                        isOK: true,
-                        playerWins: ((result.win)/((result.win)+(result.lose)))
-                    })
-                    console.log(result);
-                    let i = 0;
-                    for (i = 0; i < result.length; i++) {
-                        if (result[i].hero_id = this.state.hero){
-                            console.log(result[i])
-                            exit;
-                        }
-                    }
-                    return ((result.win)/((result.win)+(result.lose)));
-                },
-                (error) => {
-                    this.setState({
-                        isOK: true,
-                        error
-                    });
-
-                }
-
-            )
-    }
-*/
-  
-  async getWinLoss(x){
-      await fetch("https://api.opendota.com/api/players/"+ x +"/heroes")
+  async getkda(x){
+      await fetch("https://api.opendota.com/api/players/"+ x +"/matches")
           .then(res => res.json())
           .then((result) => {
                   this.setState({
@@ -121,14 +90,19 @@ class PlayerStatsWithHero extends React.Component {
                       playerWins: ((result.win)/((result.win)+(result.lose)))
                   })
                   console.log(result);
+                  let kda = [];
                   let i = 0;
-                  for (i = 0; i < result.length; i++) {
-                      if (result[i].hero_id = this.state.hero){
-                          console.log(result[i])
-                          exit;
+                  let length = result.length;
+                  for (i = 0; i < length; i++) {
+                      if (result[i].hero_id == parseInt(this.state.hero)){
+                          if(result[i].deaths == 0){
+                              kda.push((result[i].kills) + (result[i].assists));
+                          } else {
+                              kda.push(((result[i].kills) + (result[i].assists))/ (result[i].deaths));
+                          }
                       }
                   }
-                  return ((result.win)/((result.win)+(result.lose)));
+                  return ((kda.reduce((a, b) => a + b))/kda.length);
               },
               (error) => {
                   this.setState({

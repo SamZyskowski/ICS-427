@@ -12,13 +12,15 @@ class PlayerWins extends React.Component {
   */
   constructor(props){
     super(props)
-    this.state = {
-      playerID: '',
-      playerWins: 0,
-        hero:''
-    }
+      this.state = {
+          playerID: '',
+          playerWins:'',
+          hero:'',
+          heroKDA:''
+      }
     this.playerData = new playerData(props);
-    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleInputChangeID = this.handleInputChangeID.bind(this);
+      this.handleInputChangeHero = this.handleInputChangeHero.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -49,9 +51,11 @@ class PlayerWins extends React.Component {
             alert(this.state.playerID + " is your player ID");
 
             //use these to display to console
-            
+
             this.playerData.getPlayerData(parseInt(playerID));
+              this.getkda(parseInt(playerID));
             this.getWinLoss(parseInt(playerID));
+
             //console.log(this.playerData.result.win);
           } 
           else
@@ -68,12 +72,18 @@ class PlayerWins extends React.Component {
 /*
     Sets the state whenever playerID is changed 
   */
-  handleInputChange = (event) => {
+  handleInputChangeID = (event) => {
     this.setState({
         playerID: event.target.value
       })
 
   }
+    handleInputChangeHero = (event) => {
+        this.setState({
+            hero: event.target.value
+        })
+
+    }
 
 
   /**
@@ -102,6 +112,40 @@ class PlayerWins extends React.Component {
          )
    }
 
+    async getkda(x){
+        await fetch("https://api.opendota.com/api/players/"+ x +"/matches")
+            .then(res => res.json())
+            .then((result) => {
+                    console.log(result);
+                    let kda = [];
+                    let i = 0;
+                    let length = result.length;
+                    for (i = 0; i < length; i++) {
+                        if (result[i].hero_id == parseInt(this.state.hero)){
+                            if(result[i].deaths == 0){
+                                kda.push((result[i].kills) + (result[i].assists));
+                            } else {
+                                kda.push(((result[i].kills) + (result[i].assists))/ (result[i].deaths));
+                            }
+                        }
+                    }
+                    this.setState({
+                        isOK: true,
+                        heroKDA: ((kda.reduce((a, b) => a + b))/kda.length)
+                    })
+                    return ((kda.reduce((a, b) => a + b))/kda.length);
+                },
+                (error) => {
+                    this.setState({
+                        isOK: true,
+                        error
+                    });
+
+                }
+
+            )
+    }
+
   render(){
       const playerID = this.state
       return (
@@ -114,8 +158,14 @@ class PlayerWins extends React.Component {
                    type = "text" 
                    placeholder = "playerID"
                    value = {this.state.playerID}
-                   onChange = {this.handleInputChange}
+                   onChange = {this.handleInputChangeID}
                    />
+                    <input
+                        type = "text"
+                        placeholder = "HeroID"
+                        value = {this.state.hero}
+                        onChange = {this.handleInputChangeHero}
+                    />
                 <button>Search</button>
                 </form>
               </div>
@@ -127,8 +177,10 @@ class PlayerWins extends React.Component {
                       <div class = "content">
                           <img class = "right floated ui image" src = ""/>
                           <div class = "header">
-                              {this.state.playerWins}
-                              <Progress percent={this.state.playerWins} />
+                                Player W/L: {this.state.playerWins}
+                          </div>
+                          <div className="header">
+                              Hero KDA: {this.state.heroKDA}
                           </div>
                       </div>
                   </div>
