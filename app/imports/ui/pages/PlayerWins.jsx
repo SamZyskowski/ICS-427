@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import playerData from '../../api/stuff/playerData'
 import validator from 'validator';
-
+import { Progress } from 'semantic-ui-react'
 
 class PlayerWins extends React.Component {
    
@@ -14,8 +14,8 @@ class PlayerWins extends React.Component {
     super(props)
     this.state = {
       playerID: '',
-      playerWins: ''
-     
+      playerWins: 0,
+        hero:''
     }
     this.playerData = new playerData(props);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -27,6 +27,11 @@ class PlayerWins extends React.Component {
     const information = await pd.getWinLoss(105248644);
     console.log(information);
   }
+
+    increment = () =>
+        this.setState((prevState) => ({
+            playerWins: prevState.playerWins >= 100 ? 0 : prevState.playerWins,
+        }))
     
 
    /*
@@ -81,10 +86,10 @@ class PlayerWins extends React.Component {
          .then((result) => {
                this.setState({
                  isOK: true,
-                 playerWins: result.win
+                 playerWins: ((result.win)/((result.win)+(result.lose)))
                })
-               console.log(result);
-               return result.win;
+               console.log((result.win)/((result.win)+(result.lose)));
+               return ((result.win)/((result.win)+(result.lose)));
              },
              (error) => {
                this.setState({
@@ -95,7 +100,6 @@ class PlayerWins extends React.Component {
              }
  
          )
-         
    }
 
   render(){
@@ -123,7 +127,8 @@ class PlayerWins extends React.Component {
                       <div class = "content">
                           <img class = "right floated ui image" src = ""/>
                           <div class = "header">
-                            {this.state.playerWins}
+                              {this.state.playerWins}
+                              <Progress percent={this.state.playerWins} />
                           </div>
                       </div>
                   </div>
