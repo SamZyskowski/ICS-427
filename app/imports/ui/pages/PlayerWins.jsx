@@ -107,7 +107,11 @@ class PlayerWins extends React.Component {
  
          )
    }
-
+    /**
+     * Function to get a specific Heros Win Loss ratio average
+     * Makes use of the state to store the Win loss ratio of the specific hero in the param heroWL
+     * @param x = PlayerID used to retrieve matches
+     */
     async getHeroWinLoss(x){
         await fetch("https://api.opendota.com/api/players/"+ x +"/matches")
             .then(res => res.json())
@@ -148,6 +152,11 @@ class PlayerWins extends React.Component {
             )
     }
 
+    /**
+     * Function to get a specific Heros Kill/Death/Assist average
+     * Makes use of the state to store the Kill/Death/Assist average in the param heroKDA
+     * @param x = PlayerID used to retrieve matches
+     */
     async getkda(x){
         await fetch("https://api.opendota.com/api/players/"+ x +"/matches")
             .then(res => res.json())
