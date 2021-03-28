@@ -16,7 +16,8 @@ class PlayerWins extends React.Component {
           playerID: '',
           playerWins:'',
           hero:'',
-          heroKDA:''
+          heroKDA:'',
+          heroWL:''
       }
     this.playerData = new playerData(props);
     this.handleInputChangeID = this.handleInputChangeID.bind(this);
@@ -29,12 +30,6 @@ class PlayerWins extends React.Component {
     const information = await pd.getWinLoss(105248644);
     console.log(information);
   }
-
-    increment = () =>
-        this.setState((prevState) => ({
-            playerWins: prevState.playerWins >= 100 ? 0 : prevState.playerWins,
-        }))
-    
 
    /*
     Shows user what they are inputting before calling 
@@ -55,6 +50,7 @@ class PlayerWins extends React.Component {
             this.playerData.getPlayerData(parseInt(playerID));
               this.getkda(parseInt(playerID));
             this.getWinLoss(parseInt(playerID));
+              this.getHeroWinLoss(parseInt(playerID));
 
             //console.log(this.playerData.result.win);
           } 
@@ -111,6 +107,46 @@ class PlayerWins extends React.Component {
  
          )
    }
+
+    async getHeroWinLoss(x){
+        await fetch("https://api.opendota.com/api/players/"+ x +"/matches")
+            .then(res => res.json())
+            .then((result) => {
+                    console.log(result);
+                    let heroWins = 0;
+                    let heroLoses = 0;
+                    let i = 0;
+                    let length = result.length;
+                    for (i = 0; i < length; i++) {
+                        if (result[i].hero_id == parseInt(this.state.hero)){
+                            if((result[i].player_slot == 0,1,2,3,4 ) && (result[i].radiant_win == true)) {
+                                heroWins++;
+                            } else if ((result[i].player_slot > 4) && (result[i].radiant_win == false)) {
+                                heroWins++;
+                            } else {
+                                heroLoses++;
+                            }
+                        }
+                    }
+                    this.setState({
+                        isOK: true,
+                        heroWL: (heroWins/(heroWins + heroLoses))
+                    })
+                console.log(heroWins);
+                    console.log(heroLoses);
+                    console.log(heroWins/(heroWins + heroLoses));
+                    return (heroWins/(heroWins + heroLoses));
+                },
+                (error) => {
+                    this.setState({
+                        isOK: true,
+                        error
+                    });
+
+                }
+
+            )
+    }
 
     async getkda(x){
         await fetch("https://api.opendota.com/api/players/"+ x +"/matches")
@@ -178,6 +214,9 @@ class PlayerWins extends React.Component {
                           <img class = "right floated ui image" src = ""/>
                           <div class = "header">
                                 Player W/L: {this.state.playerWins}
+                          </div>
+                          <div className="header">
+                              Hero W/L: {this.state.heroWL}
                           </div>
                           <div className="header">
                               Hero KDA: {this.state.heroKDA}
