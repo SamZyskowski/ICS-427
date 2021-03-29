@@ -33,7 +33,24 @@ All that is left is to be able to display the past X games for a player and show
 
 # Roles and Responsibilities
 
-James: Added the beginning of hero specific stats, as well as being able to input which hero is being searched  <br/>
-Jeff: Fixed up numerous front end issues, and made good progress on the report  <br/>
-Chris: Finished the report  <br/>
-Sam: Finished the matchID page so it displays all the relevant information, started and continued to work on the playerID page  <br/>
+James: 
+ New: Added the beginning of hero specific stats, as well as being able to input which hero is being searched  <br/>
+ Current: Working with Sam on finishing the hero specific stats <br/>
+ Next: Being able to display last X games for various filters <br/>
+ 
+ 
+ 
+Jeff:   <br/>
+  New: Fixed up numerous front end issues, and made good progress on the report <br/>
+  Current: Making the design decision on how to display the data we are pulling from the API <br/>
+  Next: Implementing design decisions <br/>
+  
+Chris:  <br/>
+  New: Finished the report <br/>
+  Current: Helping Jeff with front end <br/>
+  Next: Helping Jeff with front end <br/>
+  
+Sam: <br/>
+  New: Finished the matchID page so it displays all the relevant information, started and continued to work on the playerID page <br/>
+  Current: Adding more information to the matchID page and possibily a new page all together, as well as streamlining busted code <br/>
+  Next: Being able to display last X games for various filters <br/>
