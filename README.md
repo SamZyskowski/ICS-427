@@ -33,7 +33,7 @@ All that is left is to be able to display the past X games for a player and show
 
 # Roles and Responsibilities
 
-James: 
+James:  <br/>
  New: Added the beginning of hero specific stats, as well as being able to input which hero is being searched  <br/>
  Current: Working with Sam on finishing the hero specific stats <br/>
  Next: Being able to display last X games for various filters <br/>
