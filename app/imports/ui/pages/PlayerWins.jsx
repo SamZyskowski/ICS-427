@@ -48,7 +48,7 @@ class PlayerWins extends React.Component {
 
             //use these to display to console
 
-            this.playerData.getPlayerData(parseInt(playerID));
+            //this.playerData.getPlayerData(parseInt(playerID));
               this.getkda(parseInt(playerID));
             this.getWinLoss(parseInt(playerID));
               this.getHeroWinLoss(parseInt(playerID));
