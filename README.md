@@ -33,7 +33,7 @@ All that is left is to be able to display the past X games for a player and show
 
 # Roles and Responsibilities
 
-James: Added the beginning of hero specific stats, as well as being able to input which hero is being searched
-Jeff: Fixed up numerous front end issues, and made good progress on the report
-Chris: Finished the report 
-Sam: Finished the matchID page so it displays all the relevant information, started and continued to work on the playerID page 
+James: Added the beginning of hero specific stats, as well as being able to input which hero is being searched  <br/>
+Jeff: Fixed up numerous front end issues, and made good progress on the report  <br/>
+Chris: Finished the report  <br/>
+Sam: Finished the matchID page so it displays all the relevant information, started and continued to work on the playerID page  <br/>
