@@ -54,3 +54,31 @@ Sam: <br/>
   New: Finished the matchID page so it displays all the relevant information, started and continued to work on the playerID page <br/>
   Current: Adding more information to the matchID page and possibily a new page all together, as well as streamlining busted code <br/>
   Next: Being able to display last X games for various filters <br/>
+  
+  
+# New section for 3/29 - 4/11 period 
+
+# Progress 
+
+Added functionality for hero list <br/>
+Cleaned up UI <br/>
+
+# Pending
+
+We still want to be able to display a certain amount of stats per player and save info to the database <br/>
+
+# Roles and Responsibilities
+
+James:  <br/>
+ Hero list drop down for playerStats page <br/>
+ 
+Jeff:   <br/>
+  Fized up UI and finished report <br/>
+  
+Chris:  <br/>
+  Finished the report <br/>
+  
+Sam: <br/>
+  Worked on existing issues from last submission <br/>
+  
+
