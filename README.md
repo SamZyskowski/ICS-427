@@ -60,7 +60,7 @@ Sam: <br/>
 
 # Progress 
 
-Added functionality for hero list <br/>
+Added functionality for a hero list <br/>
 Cleaned up UI <br/>
 
 # Pending
