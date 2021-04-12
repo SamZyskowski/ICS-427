@@ -13,7 +13,7 @@ Displaying the data to the webpage itself, not just the console <br/>
 
 Sam Zyskowski - Initial commit and all other code  <br/>
 Chris - Did not do anything since the last assignment, will try to work on either ui design or doing more with data <br/>
-James - report <br/>
+James - Worked on implementation of the playerwins page, continuing to work on error checking for the page as well <br/>
 Jeffery - Working on fixing errors and working on layouts<br/>
 
 
