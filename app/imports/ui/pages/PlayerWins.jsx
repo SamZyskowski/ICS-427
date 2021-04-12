@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Container, Form, Grid, Header, Message, Segment, Modal, Button, Dropdown } from 'semantic-ui-react';
 import playerData from '../../api/stuff/playerData'
 import validator from 'validator';
 import { Progress } from 'semantic-ui-react'
@@ -18,13 +18,41 @@ class PlayerWins extends React.Component {
           hero:'',
           heroKDA:'',
           heroWL:'',
-          playerTotalWins: ''
+          playerTotalWins: '',
+          heroID:[],
+          heroNames:[]
       }
     this.playerData = new playerData(props);
     this.handleInputChangeID = this.handleInputChangeID.bind(this);
     this.handleInputChangeHero = this.handleInputChangeHero.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.setup = this.setup.bind(this);
+    this.setup();
   }
+
+    setup = () => {
+      this.getHeroes();
+}
+
+
+    async getHeroes(){
+        await fetch("https://api.opendota.com/api/heroes")
+            .then(res => res.json())
+            .then((result) => {
+                let arrayName = [];
+                let arrayID = [];
+                for(let i = 0; i < result.length; i++){
+                    arrayName.push(result[i].localized_name);
+                    arrayID.push(result[i].id);
+                }
+                this.setState({
+                    heroNames: arrayName,
+                    heroID: arrayID
+                })
+                console.log(this.state.heroNames);
+                console.log(this.state.heroID);
+                })
+    }
 
   // async ComponentDidMount(){
   //   const pd = new playerData(props);
@@ -96,6 +124,10 @@ class PlayerWins extends React.Component {
                  playerWins: ((result.win)/((result.win)+(result.lose))).toFixed(3),
                  playerTotalWins: result.win
                })
+                 console.log(result);
+             if((result.win == 0) &&  (result.lose == 0)){
+                 alert("Player does not exist or has not played any games yet");
+             }
                console.log((result.win)/((result.win)+(result.lose)));
                return ((result.win)/((result.win)+(result.lose)));
              },
@@ -207,13 +239,14 @@ class PlayerWins extends React.Component {
                    value = {this.state.playerID}
                    onChange = {this.handleInputChangeID}
                    />
-                    <input
-                        type = "text"
-                        placeholder = "HeroID"
-                        value = {this.state.hero}
-                        onChange = {this.handleInputChangeHero}
+                    <Dropdown
+                        placeholder='Select Friend'
+                        fluid
+                        selection
+                        options={this.state.heroNames}
                     />
-                <button>Search</button>
+
+                    <button>Search</button>
                 </form>
               </div>
           </Grid.Column>
