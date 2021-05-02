@@ -212,7 +212,7 @@ class MatchID extends React.Component {
                         </form>
                     </div>
                 </Grid.Row>
-                <Grid.Row style={{height: '15%'}}>
+                <Grid.Row style={{height: '20%'}}>
                     <Grid.Column width={10}>
                         <b>
                             <div className="header" className="victor">
