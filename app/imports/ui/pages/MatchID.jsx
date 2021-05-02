@@ -197,7 +197,7 @@ class MatchID extends React.Component {
     render() {
         const matchID = this.state
         return (
-            <Grid id='landing-page' verticalAlign='middle' textAlign='center' container style={{height: '100vh'}}>
+            <Grid id='landing-page' verticalAlign='middle' textAlign='center' container style={{height: '100vh' }}>
                 <Grid.Row style={{height: '5%'}}>
                     <div className="ui form">
                         <h1>Input MatchID Here</h1>
