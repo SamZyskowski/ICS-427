@@ -73,7 +73,7 @@ James:  <br/>
  Hero list drop down for playerStats page <br/>
  
 Jeff:   <br/>
-  Fized up UI and finished report <br/>
+  Fixed up UI and finished report <br/>
   
 Chris:  <br/>
   Finished the report <br/>
