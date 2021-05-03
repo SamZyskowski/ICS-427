@@ -97,7 +97,7 @@ Refactoring of pages and report + wiki
 Jeff:   <br/>
 Changed layout for Player ID and filled in parts of the report<br/>
   
-Chris:  <br/>
+Chris:  <br/> Report
   <br/>
   
 Sam: <br/>
