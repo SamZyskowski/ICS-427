@@ -94,7 +94,7 @@ James:  <br/>
   <br/>
  
 Jeff:   <br/>
-   <br/>
+Changed layout for Player ID and filled in parts of the report<br/>
   
 Chris:  <br/>
   <br/>
