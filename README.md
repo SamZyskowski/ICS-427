@@ -103,9 +103,15 @@ Chris:  <br/> Report
 Sam: <br/>
   Fixed UI for matchInfo page and added background images <br/>
   </br>
-#Final Thoughts
+
+# Final Thoughts
 It was interesting to revisit something I haven't gone over for a long time. It did create some problems when trying to figure out how to do certain things but otherwise it was pretty easy to just look stuff up.
-  
 
-
-
+# How to install and use
+To use the program, macOS is preferred but not required. To see if your computer or device can run this, you will need to visit installation links provided in the steps below  and see if your device is able to install those requirements. Main points are to clone the repository and install npm and meteor.
+1. Download and install github desktop. Then clone the repository to your machine. The desktop is preferred but if you don’t like the desktop or are unfamiliar with it, you may do it manually too. Instructions for both methods are in this: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository
+2. On the desktop, you can now right-click the repository and select the “open in command prompt” option. If you are not using the desktop, simply go to the directory where you cloned the repository using a command prompt or terminal
+3. Once in the directory, go into the “app” sub directory using “cd app”. Then install meteor using “meteor npm install”. If there are problems with installation of meteor please look at the following links: https://docs.npmjs.com/cli/v7/commands/npm-install https://www.meteor.com/developers/install
+4. Once installed, run the app using “meteor npm run start”. The app will run on a local port such as http://localhost:3000/ 
+5. Lastly, open up a web browser like google chrome and head to that local destination to view the program
+To uninstall the program, just delete the directory from your machine. 
