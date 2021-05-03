@@ -93,26 +93,8 @@ class Landing extends React.Component {
           <Grid.Column width={4}>
             <h1>Welcome to PROSTATS</h1>
           </Grid.Column>
-
-          {/* <Grid.Column width = {4}>
-              <div class = "ui form">
-                <h1>Input MatchID Here</h1>
-                <form onSubmit = {this.handleSubmit}>
-                  <input
-                   type = "text" 
-                   placeholder = "MatchID"
-                   value = {this.state.matchID}
-                   onChange = {this.handleInputChange}
-                   />
-                <button>Search</button>
-                </form>
-              </div>
-          </Grid.Column> */}
-
                 </Grid>
                 </BackgroundStyle>
-
-
     );
   }
 

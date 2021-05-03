@@ -179,13 +179,9 @@ class MatchID extends React.Component {
         if (radiantWin == true) {
             this.victoryOut = "Radiant Victory!";
             this.victorImage = "https://cdn-images.win.gg/resize/w/800/h/600/format/jpg/type/progressive/fit/cover/path/news/b9b852ac7bd1776bc5ac5ce3b41d8af7/c0b830593397c256dc8269556c5512f8/original.jpg"
-            // this.victorImage = '"/images/RadiantClip.png';
-            //console.log(this.victoryOut);
-            //return "Radiant Victory!";
         } else {
             this.victoryOut = "Dire Victory!";
             this.victorImage = "https://www.vpesports.com/wp-content/uploads/2020/03/dire-cover.png"
-            //return "Dire Victory!";
         }
     }
 
@@ -210,46 +206,6 @@ class MatchID extends React.Component {
 
     render() {
         const matchID = this.state
-        // return (
-        //     <Grid id='landing-page' verticalAlign='middle' textAlign='center' container style={{height: '100vh' }}>
-        //         <Grid.Row style={{height: '5%'}}>
-        //             <div className="ui form">
-        //                 <h1>Input MatchID Here</h1>
-        //                 <form onSubmit={this.handleSubmit}>
-        //                     <input
-        //                         type="text"
-        //                         placeholder="MatchID"
-        //                         value={this.state.matchID}
-        //                         onChange={this.handleInputChange}
-        //                     />
-        //                     <button>Search</button>
-        //                 </form>
-        //             </div>
-        //         </Grid.Row>
-        //         <Grid.Row style={{height: '20%'}}>
-        //             <Grid.Column width={10}>
-        //                 <b>
-        //                     <div className="header" className="victor">
-        //                         Winner: {this.victoryOut}
-        //                     </div>
-        //                 </b>
-        //             </Grid.Column>
-        //             <Grid.Column width={6}>
-        //                 <img src={this.victorImage}/>
-        //             </Grid.Column>
-        //         </Grid.Row>
-        //         <Grid.Row style={{height: '10%'}}>
-        //             <div className="header" className="victor">
-        //                 Duration of Match: {(this.state.duration / 60).toFixed(0)} minutes
-        //             </div>
-        //         </Grid.Row>
-        //         <Grid.Row style={{height: '30%'}}>
-        //             <div className="header"className="victor">
-        //                 Skill level: {this.skillString}
-        //             </div>
-        //         </Grid.Row>
-        //     </Grid>
-        // );
          return (
             <BackgroundStyle>
             <Grid id='landing-page' verticalAlign='middle' textAlign='center' container style={{height: '70vh'}}>

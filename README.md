@@ -91,6 +91,7 @@ Succeeded in adding background images and fixing UI
 # Roles and Responsibilities
 
 James:  <br/>
+Refactoring of pages and report
   <br/>
  
 Jeff:   <br/>

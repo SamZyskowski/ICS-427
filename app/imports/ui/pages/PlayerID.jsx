@@ -94,7 +94,6 @@ class PlayerID extends React.Component {
                       <div class = "content">
                           <img class = "right floated ui image" src = ""/>
                           <div class = "header">
-                            {/* insert code to get win count here */}
                           </div>
                       </div>
                   </div>

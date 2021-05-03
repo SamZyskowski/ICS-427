@@ -47,11 +47,6 @@ class PlayerWins extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // async ComponentDidMount(){
-    //   const pd = new playerData(props);
-    //   const information = await pd.getWinLoss(105248644);
-    //   console.log(information);
-    // }
 
     /*
      Shows user what they are inputting before calling
@@ -63,25 +58,13 @@ class PlayerWins extends React.Component {
 
         if (validator.isInt(this.state.playerID)) {
             this.setState({playerID});
-            //console.log(playerID);
-            //alert(this.state.playerID + " is your player ID");
-
-            //use these to display to console
-
-            //this.playerData.getPlayerData(parseInt(playerID));
             this.getkda(parseInt(playerID));
             this.getWinLoss(parseInt(playerID));
             this.getHeroWinLoss(parseInt(playerID));
 
-            //console.log(this.playerData.result.win);
         } else {
             alert("Please enter an integer");
         }
-        //   let jsonData;
-        //   this.playerData.getWinLoss(parseInt(playerID)).then((data) => {
-        //       jsonData = data;
-        //   });
-
     }
 
     /*

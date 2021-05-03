@@ -45,24 +45,17 @@ class PlayerStatsWithHero extends React.Component {
         if(validator.isInt(this.state.playerID))
         {
             this.setState({playerID});
-            //console.log(playerID);
             alert(this.state.playerID + " is your player ID");
 
             //use these to display to console
 
             this.playerData.getPlayerData(parseInt(playerID));
             this.getkda(parseInt(playerID));
-            //console.log(this.playerData.result.win);
         }
         else
         {
             alert("Please enter an integer");
         }
-        //   let jsonData;
-        //   this.playerData.getWinLoss(parseInt(playerID)).then((data) => {
-        //       jsonData = data;
-        //   });
-
     }
 
     /*
