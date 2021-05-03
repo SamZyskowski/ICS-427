@@ -102,6 +102,9 @@ Chris:  <br/> Report
   
 Sam: <br/>
   Fixed UI for matchInfo page and added background images <br/>
+  </br>
+#Final Thoughts
+It was interesting to revisit something I haven't gone over for a long time. It did create some problems when trying to figure out how to do certain things but otherwise it was pretty easy to just look stuff up.
   
 
 
