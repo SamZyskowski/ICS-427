@@ -120,5 +120,7 @@ To uninstall the program, just delete the directory from your machine.
 Repository: https://github.com/SamZyskowski/ICS-427
 
 Documentation: https://github.com/SamZyskowski/ICS-427/blob/master/README.md
+
 Release: https://github.com/SamZyskowski/ICS-427/releases
+
 Wiki: https://github.com/SamZyskowski/ICS-427/wiki
