@@ -81,4 +81,27 @@ Chris:  <br/>
 Sam: <br/>
   Worked on existing issues from last submission <br/>
   
+  
+  # New section for last period
+
+# Progress 
+
+Succeeded in adding background images and fixing UI
+
+# Roles and Responsibilities
+
+James:  <br/>
+  <br/>
+ 
+Jeff:   <br/>
+   <br/>
+  
+Chris:  <br/>
+  <br/>
+  
+Sam: <br/>
+  Fixed UI for matchInfo page and added background images <br/>
+  
+
+
 
