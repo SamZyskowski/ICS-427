@@ -2,7 +2,20 @@ import React from 'react';
 import {Container, Form, Grid, Header, Message, Segment} from 'semantic-ui-react';
 import matchData from '../../api/stuff/matchData'
 import validator from 'validator';
+import styled from 'styled-components';
 
+const BackgroundStyle = styled.div`
+  background: url('https://cdn1.dotesports.com/wp-content/uploads/2018/08/11142025/ba87965c-382e-403d-b764-98f9baae54ac.png');
+  background-size: cover;
+  position: fixed;
+  top: 58px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 2em;
+`;
 
 class MatchID extends React.Component {
 
@@ -166,6 +179,7 @@ class MatchID extends React.Component {
         if (radiantWin == true) {
             this.victoryOut = "Radiant Victory!";
             this.victorImage = "https://cdn-images.win.gg/resize/w/800/h/600/format/jpg/type/progressive/fit/cover/path/news/b9b852ac7bd1776bc5ac5ce3b41d8af7/c0b830593397c256dc8269556c5512f8/original.jpg"
+            // this.victorImage = '"/images/RadiantClip.png';
             //console.log(this.victoryOut);
             //return "Radiant Victory!";
         } else {
@@ -196,46 +210,100 @@ class MatchID extends React.Component {
 
     render() {
         const matchID = this.state
-        return (
-            <Grid id='landing-page' verticalAlign='middle' textAlign='center' container style={{height: '100vh' }}>
-                <Grid.Row style={{height: '5%'}}>
+        // return (
+        //     <Grid id='landing-page' verticalAlign='middle' textAlign='center' container style={{height: '100vh' }}>
+        //         <Grid.Row style={{height: '5%'}}>
+        //             <div className="ui form">
+        //                 <h1>Input MatchID Here</h1>
+        //                 <form onSubmit={this.handleSubmit}>
+        //                     <input
+        //                         type="text"
+        //                         placeholder="MatchID"
+        //                         value={this.state.matchID}
+        //                         onChange={this.handleInputChange}
+        //                     />
+        //                     <button>Search</button>
+        //                 </form>
+        //             </div>
+        //         </Grid.Row>
+        //         <Grid.Row style={{height: '20%'}}>
+        //             <Grid.Column width={10}>
+        //                 <b>
+        //                     <div className="header" className="victor">
+        //                         Winner: {this.victoryOut}
+        //                     </div>
+        //                 </b>
+        //             </Grid.Column>
+        //             <Grid.Column width={6}>
+        //                 <img src={this.victorImage}/>
+        //             </Grid.Column>
+        //         </Grid.Row>
+        //         <Grid.Row style={{height: '10%'}}>
+        //             <div className="header" className="victor">
+        //                 Duration of Match: {(this.state.duration / 60).toFixed(0)} minutes
+        //             </div>
+        //         </Grid.Row>
+        //         <Grid.Row style={{height: '30%'}}>
+        //             <div className="header"className="victor">
+        //                 Skill level: {this.skillString}
+        //             </div>
+        //         </Grid.Row>
+        //     </Grid>
+        // );
+         return (
+            <BackgroundStyle>
+            <Grid id='landing-page' verticalAlign='middle' textAlign='center' container style={{height: '70vh'}}>
+                <Grid.Row /*style={{height: '15%'}}*/>
                     <div className="ui form">
                         <h1>Input MatchID Here</h1>
                         <form onSubmit={this.handleSubmit}>
                             <input
                                 type="text"
-                                placeholder="MatchID"
+                                placeholder="matchID"
                                 value={this.state.matchID}
-                                onChange={this.handleInputChange}
+                                onChange={this.handleInputChangeID}
                             />
                             <button>Search</button>
                         </form>
                     </div>
                 </Grid.Row>
-                <Grid.Row style={{height: '20%'}}>
-                    <Grid.Column width={10}>
-                        <b>
-                            <div className="header" className="victor">
-                                Winner: {this.victoryOut}
+                <Grid.Row style={{height: '15%'}}>
+                    <div className="ui cards">
+                        <div className="card">
+                            <div className="content">
+                                <div className="header" className="victor2">
+                                    Winner: {this.victoryOut}
+                                </div>
                             </div>
-                        </b>
-                    </Grid.Column>
-                    <Grid.Column width={6}>
-                        <img src={this.victorImage}/>
-                    </Grid.Column>
-                </Grid.Row>
-                <Grid.Row style={{height: '10%'}}>
-                    <div className="header" className="victor">
-                        Duration of Match: {(this.state.duration / 60).toFixed(0)} minutes
-                        and {(this.state.duration % 60).toFixed(0)} seconds
+                        </div>
                     </div>
                 </Grid.Row>
-                <Grid.Row style={{height: '30%'}}>
-                    <div className="header"className="victor">
-                        Skill level: {this.skillString}
+                <Grid.Row style={{height: '25%'}}>
+                    <div className="ui cards">
+                        <div className="card">
+                            <div className="content">
+                                <div className="header" className="victor2">Duration: </div>
+                            <div className = "description">
+                            {(this.state.duration / 60).toFixed(0)} minutes
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </Grid.Row>
+                <Grid.Row style={{height: '15%'}}>
+                    <div className="ui cards">
+                        <div className="card">
+                            <div className="content">
+
+                                <div className="header" className="victor2">
+                                   Skill Level: {this.skillString}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </Grid.Row>
             </Grid>
+            </BackgroundStyle>
         );
     }
 }

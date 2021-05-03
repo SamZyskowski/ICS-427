@@ -3,6 +3,27 @@ import {Container, Form, Grid, Header, Message, Segment} from 'semantic-ui-react
 import playerData from '../../api/stuff/playerData'
 import validator from 'validator';
 import {Progress} from 'semantic-ui-react'
+import styled from 'styled-components';
+
+
+
+
+
+const BackgroundStyle = styled.div`
+  background: url('https://estnn.com/wp-content/uploads/2020/04/wraith-king-dota-2.png');
+  background-size: cover;
+  position: fixed;
+  top: 58px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 2em;
+`;
+
+
+
 
 class PlayerWins extends React.Component {
 
@@ -191,6 +212,7 @@ class PlayerWins extends React.Component {
     render() {
         const playerID = this.state
         return (
+            <BackgroundStyle>
             <Grid id='landing-page' verticalAlign='middle' textAlign='center' container style={{height: '70vh'}}>
                 <Grid.Row /*style={{height: '15%'}}*/>
                     <div class="ui form">
@@ -257,6 +279,7 @@ class PlayerWins extends React.Component {
                     </div>
                 </Grid.Row>
             </Grid>
+            </BackgroundStyle>
         );
     }
 }

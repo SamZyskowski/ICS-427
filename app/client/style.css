@@ -1,14 +1,11 @@
 .b-background {
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    background-color: #000000;
+    background-color: black;
     font-family: monospace;
     color: WHITE;
-    height: 200px;
-    line-height: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
+    height: 120px;
+    line-height: 0px;
   }
   
   .b-background .item {
@@ -17,4 +14,14 @@
   
   .victor{
       font-size: 40px;
+  }
+
+  .victor2{
+    font-size: 20px;
+}
+
+  .matchIDPage {
+    background: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fweplay.tv%2Fnews%2Ftop-five-dota-2-hero-sets-abaddon-22522&psig=AOvVaw0rdLCKR9HuTWbvQ9K9ZXHB&ust=1620099523113000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKiJy5bLrPACFQAAAAAdAAAAABAQ") no-repeat; background-size: cover;
+    min-width: 100%;
+    min-height: 100%;
   }

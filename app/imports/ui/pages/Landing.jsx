@@ -2,6 +2,28 @@ import React from 'react';
 import { Grid, Image } from 'semantic-ui-react';
 import matchData from '../../api/stuff/matchData'
 import validator from 'validator';
+import styled from 'styled-components';
+
+
+
+
+
+
+
+
+const BackgroundStyle = styled.div`
+  background: url('https://static-prod.weplay.tv/2020-02-11/df2329c33b5278db3fd6859882a283d1_large_cover.425893-E49EAF-85D6FB.png');
+  background-size: cover;
+  position: fixed;
+  top: 58px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 2em;
+`;
+  
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -58,19 +80,18 @@ class Landing extends React.Component {
     so that it may be passed to the handle submit function 
 
   */
+
+
+  
   render() {
     const matchID = this.state
     return (
-        <Grid id='landing-page' verticalAlign='middle' textAlign='center' container>
+      <BackgroundStyle>
 
-          <Grid.Column width={10}>
-            <Image size='small' circular src="/images/dota.jpg"/>
-          </Grid.Column>
+        <Grid id='landing-page' verticalAlign='middle' textAlign='center' container>
 
           <Grid.Column width={4}>
             <h1>Welcome to PROSTATS</h1>
-            <p>Your next solution to becoming a smarter player</p>
-            <p>Sign-up to begin</p>
           </Grid.Column>
 
           {/* <Grid.Column width = {4}>
@@ -88,7 +109,10 @@ class Landing extends React.Component {
               </div>
           </Grid.Column> */}
 
-        </Grid>
+                </Grid>
+                </BackgroundStyle>
+
+
     );
   }
 
