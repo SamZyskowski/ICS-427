@@ -115,3 +115,9 @@ To use the program, macOS is preferred but not required. To see if your computer
 4. Once installed, run the app using “meteor npm run start”. The app will run on a local port such as http://localhost:3000/ 
 5. Lastly, open up a web browser like google chrome and head to that local destination to view the program
 To uninstall the program, just delete the directory from your machine. 
+
+# Links
+Repository: https://github.com/SamZyskowski/ICS-427
+Documentation: https://github.com/SamZyskowski/ICS-427/blob/master/README.md
+Release: https://github.com/SamZyskowski/ICS-427/releases
+Wiki: https://github.com/SamZyskowski/ICS-427/wiki
