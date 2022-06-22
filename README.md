@@ -105,7 +105,7 @@ Sam: <br/>
   </br>
 
 # Final Thoughts
-It was interesting to revisit something I haven't gone over for a long time. It did create some problems when trying to figure out how to do certain things but otherwise it was pretty easy to just look stuff up.
+Working with an API was more fun than previously experienced, and having group members that are passionate about the project makes a big difference.
 
 # How to install and use
 To use the program, macOS is preferred but not required. To see if your computer or device can run this, you will need to visit installation links provided in the steps below  and see if your device is able to install those requirements. Main points are to clone the repository and install npm and meteor.
